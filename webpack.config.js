@@ -28,5 +28,5 @@ module.exports = {
         options: { outputPath: "public/images" },
       },
     ],
-  },
+  },   
 };

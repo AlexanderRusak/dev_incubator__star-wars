@@ -1,1 +1,106 @@
+@import url(https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap);
+body {
+  margin: 0;
+  padding: 0; }
+
+.main-section {
+  background: url("./image/space.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .main-section .card-search-section {
+    margin-top: 10%;
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .main-section .card-search-section input {
+      margin: 10px;
+      height: 65px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      border: none; }
+    .main-section .card-search-section input[type="search"] {
+      width: 60%;
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      font-size: 1rem;
+      padding-left: 20px;
+      outline: none; }
+      .main-section .card-search-section input[type="search"]::placeholder {
+        color: #fff;
+        padding-left: 10px; }
+      .main-section .card-search-section input[type="search"]::-webkit-search-cancel-button {
+        -webkit-appearance: none; }
+    .main-section .card-search-section input[type="button"] {
+      width: 8%;
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      font-size: 1rem;
+      cursor: pointer;
+      outline: none; }
+      .main-section .card-search-section input[type="button"]:hover {
+        background-color: rgba(0, 0, 0, 0.6); }
+  .main-section .card-section {
+    margin-top: 10%;
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    flex-wrap: wrap; }
+    .main-section .card-section .primary-card {
+      margin: 10px;
+      width: 20rem;
+      height: 20rem;
+      color: red;
+      font-size: 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      border: none; }
+      .main-section .card-section .primary-card i {
+        display: none; }
+
+#expand-card {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: 0.3s ease-in-out;
+  width: 80%;
+  height: 500px; }
+  #expand-card i {
+    display: flex;
+    align-self: flex-end;
+    font-size: 30px;
+    color: white; }
+
+.pagination {
+  display: inline-flex;
+  width: 95vw;
+  justify-content: space-between;
+  background-color: red;
+  margin-bottom: 200px; }
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none; }
+    .pagination a:active {
+      background-color: #4caf50;
+      color: white;
+      border-radius: 5px; }
+    .pagination a:hover:not(.active) {
+      background-color: #ddd;
+      border-radius: 5px; }
 
