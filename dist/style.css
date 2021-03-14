@@ -59,27 +59,72 @@ body {
       margin: 10px;
       width: 20rem;
       height: 20rem;
-      color: red;
+      font-family: "Space Mono", monospace;
+      color: #fff;
       font-size: 40px;
       background-color: rgba(0, 0, 0, 0.5);
       border-radius: 10px;
       border: none; }
       .main-section .card-section .primary-card i {
         display: none; }
+      .main-section .card-section .primary-card h6 {
+        margin: 10px;
+        text-align: center; }
+      .main-section .card-section .primary-card .primary-card__info-label {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 18px;
+        background-color: rgba(255, 255, 255, 0.2);
+        text-align: center;
+        margin-top: 20px;
+        border: 2px solid #ccc;
+        width: 80%;
+        cursor: pointer; }
+        .main-section .card-section .primary-card .primary-card__info-label:hover {
+          transition: all 0.3s ease-in-out;
+          background-color: rgba(255, 255, 255, 0.6); }
+      .main-section .card-section .primary-card .primary-card__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; }
+        .main-section .card-section .primary-card .primary-card__info p {
+          margin: 5px;
+          font-size: 24px;
+          margin-left: 15px; }
+      .main-section .card-section .primary-card .primary-card__info-additional {
+        display: none; }
+        .main-section .card-section .primary-card .primary-card__info-additional p {
+          margin: 5px;
+          font-size: 24px;
+          margin-left: 15px; }
 
 #expand-card {
   display: flex;
   flex-direction: column;
   margin: auto;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   transition: 0.3s ease-in-out;
-  width: 80%;
+  width: 60%;
   height: 500px; }
+  #expand-card .primary-card__info-additional {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap; }
+    #expand-card .primary-card__info-additional p {
+      text-transform: capitalize;
+      width: 25%; }
+  #expand-card .primary-card__info-label {
+    display: none; }
   #expand-card i {
+    position: relative;
+    bottom: 25px;
+    left: 25px;
     display: flex;
     align-self: flex-end;
     font-size: 30px;

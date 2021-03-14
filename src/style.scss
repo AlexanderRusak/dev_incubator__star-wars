@@ -71,11 +71,50 @@ body {
       margin: 10px;
       width: 20rem;
       height: 20rem;
-      color: red;
+      font-family: $space-font;
+      color: #fff;
       font-size: 40px;
       @include main-style;
       i {
         display: none;
+      }
+      h6 {
+        margin: 10px;
+        text-align: center;
+      }
+      .primary-card__info-label {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 18px;
+        background-color: rgba($color: #ffff, $alpha: 0.2);
+        text-align: center;
+        margin-top: 20px;
+        border: 2px solid #ccc;
+        width: 80%;
+        cursor: pointer;
+        &:hover {
+          transition: all 0.3s ease-in-out;
+          background-color: rgba($color: #ffff, $alpha: 0.6);
+        }
+      }
+      .primary-card__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        p {
+          margin: 5px;
+          font-size: 24px;
+          margin-left: 15px;
+        }
+      }
+      .primary-card__info-additional {
+        display: none;
+        p {
+          margin: 5px;
+          font-size: 24px;
+          margin-left: 15px;
+        }
       }
     }
   }
@@ -85,16 +124,31 @@ body {
   display: flex;
   flex-direction: column;
   margin: auto;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   transition: 0.3s ease-in-out;
-  width: 80%;
+  width: 60%;
   height: 500px;
-
+  .primary-card__info-additional {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    p {
+      text-transform: capitalize;
+      width: 25%;
+    }
+  }
+  .primary-card__info-label {
+    display: none;
+  }
   i {
+    position: relative;
+    bottom: 25px;
+    left: 25px;
     display: flex;
     align-self: flex-end;
     font-size: 30px;
