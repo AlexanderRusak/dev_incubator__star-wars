@@ -1,6 +1,6 @@
 import * as Handlebars from "handlebars/dist/cjs/handlebars";
 
-export const getDataFromApi = async (category, page) => {
+const getDataFromApi = async (category, page) => {
     let result = [];
 
     const data = await fetch(`https://swapi.dev/api/${category}/?limit=10&page=${page}`);
@@ -17,13 +17,13 @@ const setDataToLocalStarage = (page, data) => {
     localStorage.setItem(page, `${data}`);
 }
 
-export const getDataFromLocalStorage = (page) => {
+const getDataFromLocalStorage = (page) => {
 
     const pageData = localStorage.getItem(page);
     return pageData;
 }
 
-export const getSearchData = async (name) => {
+const getSearchData = async (name) => {
     let data = [];
     let response;
     if (getDataFromLocalStorage(name)) {
@@ -97,13 +97,13 @@ export const appendTempalte = async (page, searchData = null) => {
 
 }
 
-export function setCardEvents() {
+function setCardEvents() {
     const element = this.closest(".primary-card");
     element.setAttribute("id", "expand-card");
 
 }
 
-export const getCardTemplate = (data) => {
+const getCardTemplate = (data) => {
     return Handlebars.compile(`<div class="primary-card">
   <i class="far fa-times-circle"></i>
   <h6>{{name}}</h6>
