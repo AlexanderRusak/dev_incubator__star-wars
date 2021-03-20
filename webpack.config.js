@@ -1,10 +1,10 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const loader = require("sass-loader");
 module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: "style.css",
-      linkType: false,
     }),
   ],
   entry: "./src/app.js",
@@ -22,11 +22,14 @@ module.exports = {
           { loader: "sass-loader", options: { sourceMap: true } },
         ],
       },
+
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
-        loader: "file-loader",
-        options: { outputPath: "public/images" },
-      },
-    ],
-  },   
+        test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]'
+        }
+      }
+    ],   
+  },
 };
