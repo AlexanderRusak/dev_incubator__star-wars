@@ -29,7 +29,12 @@ module.exports = {
         options: {
           name: '[path][name].[ext]'
         }
-      }
-    ],   
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"]
+      },
+    ],
   },
 };
