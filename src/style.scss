@@ -11,7 +11,7 @@ body {
   padding: 0;
 }
 .main-section {
-  background: url("./image/space.jpg");
+  background: url("../dist/image/space.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -89,7 +89,7 @@ body {
         font-size: 18px;
         background-color: rgba($color: #ffff, $alpha: 0.2);
         text-align: center;
-        margin-top: 20px;
+        margin-top: 90px;
         border: 2px solid #ccc;
         width: 80%;
         cursor: pointer;
@@ -160,21 +160,26 @@ body {
   display: inline-flex;
   width: 95vw;
   justify-content: space-between;
-  background-color: red;
+  background-color: rgba($color: #000, $alpha: 0.5);
   margin-bottom: 200px;
-  & a {
-    color: black;
+  & div {
+    color: #fff;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
+    font-family: $space-font;
     &:active {
       background-color: #4caf50;
       color: white;
       border-radius: 5px;
     }
     &:hover:not(.active) {
-      background-color: #ddd;
+      background-color: rgba($color: #ddd, $alpha: 0.5);
       border-radius: 5px;
     }
   }
+}
+.pagination-page {
+  background-color: rgba($color: #ddd, $alpha: 0.5);
+  border-radius: 5px;
 }
