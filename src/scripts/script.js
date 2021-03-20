@@ -19,7 +19,7 @@ const getDataFromApi = async (category, page) => {
     result = [...results];
 
 
-    setPageDataToLocalStarage(page, JSON.stringify(result));
+    setDataToLocalStarage(page, JSON.stringify(result));
 
     return result;
 }
@@ -45,10 +45,9 @@ const getCardTemplate = (data) => {
   </div>`)(data);
 }
 
-const appendTempalte = async (page) => {
+const appendTempalte = async (page, searchData = null) => {
     const container = document.getElementById("card-section");
-    const data = getPageDataFromLocalStorage(page) ? await JSON.parse(getPageDataFromLocalStorage(page)) : await getDataFromApi("people", page);
-
+    const data = !searchData ? getDataFromLocalStorage(page) ? await JSON.parse(getDataFromLocalStorage(page)) : await getDataFromApi("people", page) : searchData;
     const elements = [];
     data.forEach((card) => {
         elements.push(getCardTemplate(card));
@@ -104,17 +103,49 @@ const setEventsOnPaginationPages = () => {
 }
 
 
-const getPageDataFromLocalStorage = (page) => {
+const getDataFromLocalStorage = (page) => {
 
     const pageData = localStorage.getItem(page);
     return pageData;
 }
 
-const setPageDataToLocalStarage = (page, data) => {
+const setDataToLocalStarage = (page, data) => {
     localStorage.setItem(page, `${data}`);
 }
 
+const getSearchData = async (name) => {
+    let data = [];
+    let response;
+
+    console.log(getDataFromLocalStorage(name));
+
+    if (getDataFromLocalStorage(name)) {
+
+        appendTempalte(1, JSON.parse(getDataFromLocalStorage(name)))
+
+    } else {
+        data = await fetch(`https://swapi.dev/api/people/?search=${name}`);
+        response = await data.json();
+
+        setDataToLocalStarage(name, JSON.stringify(response.results));
+        appendTempalte(1, [...response.results])
+    }
+
+
+}
+
+const search = async () => {
+    const inputString = document.getElementById("card-search");
+    const inputButton = document.getElementById("button-search");
+
+    inputButton.addEventListener("click", async () => {
+        await getSearchData(inputString.value);
+    });
+}
+
+
+
 appendTempalte(1);
 setPaginationTemplate();
-
+search();
 
