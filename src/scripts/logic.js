@@ -28,15 +28,19 @@ const getSearchData = async (name) => {
     let response;
     if (getDataFromLocalStorage(name)) {
 
-        appendTempalte(1, JSON.parse(getDataFromLocalStorage(name)))
+        !getDataFromLocalStorage(name) && toggleEmptySearchResult(name);
+        appendTempalte(1, JSON.parse(getDataFromLocalStorage(name)));
+
 
     } else {
         data = await fetch(`https://swapi.dev/api/people/?search=${name}`);
         response = await data.json();
+        !response.count && toggleEmptySearchResult(name);
 
         setDataToLocalStarage(name, JSON.stringify(response.results));
         appendTempalte(1, [...response.results])
     }
+    toggleBackButton();
 }
 
 export const setPaginationTemplate = async () => {
@@ -132,4 +136,22 @@ export const search = async () => {
     inputButton.addEventListener("click", async () => {
         await getSearchData(inputString.value);
     });
+}
+
+const toggleEmptySearchResult = (name) => {
+    let display = document.getElementById("search-empty").style.display;
+    console.log(!!display);
+    !!display ? document.getElementById("search-empty").style.display = "none" : document.getElementById("search-empty").style.display = "block";
+    document.querySelector(".search-empty h4").innerText = `No results were found for ${name}!`;
+}
+
+const toggleBackButton = () => {
+    const returnButton = document.getElementById("return");
+    returnButton.style.display = "block";
+    returnButton.addEventListener("click",()=>{
+        document.getElementById("pagination").style.display = "flex";
+        returnButton.style.display = "none";
+        appendTempalte(1);
+    })
+    document.getElementById("pagination").style.display = "none";
 }
