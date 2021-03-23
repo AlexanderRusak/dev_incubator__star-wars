@@ -13,6 +13,7 @@ const getDataFromApi = async (category, page) => {
 
     return result;
 }
+
 const setDataToLocalStarage = (page, data) => {
     localStorage.setItem(page, `${data}`);
 }
@@ -78,7 +79,7 @@ export const appendTempalte = async (page, searchData = null) => {
     const container = document.getElementById("card-section");
     const data = !searchData ? getDataFromLocalStorage(page) ? await JSON.parse(getDataFromLocalStorage(page)) : await getDataFromApi("people", page) : searchData;
     const elements = [];
-    data.forEach((card) => {
+    data.forEach((card) => {   ///map
         elements.push(getCardTemplate(card));
     });
     container.innerHTML = elements;
