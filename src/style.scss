@@ -1,1 +1,221 @@
-  
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+$space-font: "Space Mono", monospace;
+@mixin main-style {
+  background-color: rgba($color: #000, $alpha: 0.5);
+  border-radius: 10px;
+  border: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.main-section {
+  background-image: url("./images/space.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  .card-search-section {
+    margin-top: 5%;
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+      margin: 10px;
+      height: 65px;
+      @include main-style;
+    }
+    input[type="search"] {
+      width: 60%;
+      color: #fff;
+      font-family: $space-font;
+      font-size: 1rem;
+      padding-left: 20px;
+      outline: none;
+      cursor: pointer;
+      &::placeholder {
+        color: #fff;
+        margin-left: 20px;
+      }
+      &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+      }
+    }
+    input[type="button"] {
+      width: 8%;
+      color: #fff;
+      font-family: $space-font;
+      font-size: 1rem;
+      cursor: pointer;
+      outline: none;
+      &:hover {
+        background-color: rgba($color: #000, $alpha: 0.6);
+      }
+    }
+  }
+  .card-section {
+    margin-top: 5%;
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    flex-wrap: wrap;
+    .primary-card {
+      margin: 10px;
+      width: 20rem;
+      height: 20rem;
+      font-family: $space-font;
+      color: #fff;
+      font-size: 40px;
+      @include main-style;
+      i {
+        display: none;
+      }
+      h6 {
+        margin: 10px;
+        text-align: center;
+      }
+      .primary-card__info-label {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 18px;
+        background-color: rgba($color: #ffff, $alpha: 0.2);
+        text-align: center;
+        margin-top: 90px;
+        border: 2px solid #ccc;
+        width: 80%;
+        cursor: pointer;
+        &:hover {
+          transition: all 0.3s ease-in-out;
+          background-color: rgba($color: #ffff, $alpha: 0.6);
+        }
+      }
+      .primary-card__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        p {
+          margin: 5px;
+          font-size: 24px;
+          margin-left: 15px;
+        }
+      }
+      .primary-card__info-additional {
+        display: none;
+        p {
+          margin: 5px;
+          font-size: 24px;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}
+
+#expand-card {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: 0.3s ease-in-out;
+  width: 50%;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.8);
+  .primary-card__info-additional {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    p {
+      text-transform: capitalize;
+      width: 25%;
+    }
+  }
+  .primary-card__info-label {
+    display: none;
+  }
+  i {
+    position: relative;
+    bottom: 25px;
+    left: 25px;
+    display: flex;
+    align-self: flex-end;
+    font-size: 30px;
+    color: rgba($color: #fff, $alpha: 1);
+  }
+}
+
+.pagination {
+  position: relative;
+  display: inline-flex;
+  width: 95vw;
+  margin-top: 5%;
+  justify-content: space-between;
+  background-color: rgba($color: #000, $alpha: 0.5);
+  margin-bottom: 5%;
+  & div {
+    color: #fff;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-family: $space-font;
+    &:active {
+      background-color: #4caf50;
+      color: white;
+      border-radius: 5px;
+    }
+    &:hover:not(.active) {
+      background-color: rgba($color: #ddd, $alpha: 0.5);
+      border-radius: 5px;
+    }
+  }
+}
+.pagination-page {
+  background-color: rgba($color: #ddd, $alpha: 0.5);
+  border-radius: 5px;
+}
+
+.search-empty {
+  display: none;
+  font-family: $space-font;
+  color: #fff;
+  font-size: 3rem;
+  h4 {
+    margin: 0;
+  }
+}
+
+.return {
+  display: none;
+  font-family: $space-font;
+  color: #fff;
+  font-size: 2rem;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  width: 300px;
+  margin-bottom: 5%;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba($color: #000000, $alpha: 1);
+    transition: 0.5s ease-in-out;
+  }
+  p {
+    margin: 3px;
+    text-align: center;
+  }
+}
